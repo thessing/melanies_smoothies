@@ -28,9 +28,9 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
 ingredients_list = st.multiselect('Choose up to 5 ingredients:', my_dataframe, max_selections=5)
-smoothiefroot_response = requests.get("https://www.fruityvice.com/api/fruit/watermelon")
+#smoothiefroot_response = requests.get("https://www.fruityvice.com/api/fruit/watermelon")
 #st.text(smoothiefroot_response)
-sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+#sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
 if ingredients_list:
     #st.write(ingredients_list)
@@ -39,6 +39,9 @@ if ingredients_list:
 
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
+        st.subheader(fruit_chosen + ' Nutritional Information')
+        smoothiefroot_response = requests.get("https://www.fruityvice.com/api/fruit/watermelon")
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
 
     #st.write(ingredients_string)
     
