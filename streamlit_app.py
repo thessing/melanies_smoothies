@@ -25,7 +25,7 @@ st.write('The name on your Smoothie will be:', name_on_order)
 mytoken="eyJraWQiOiIzNTU4OTQzMDQ1NjIzODE0IiwiYWxnIjoiRVMyNTYifQ.eyJwIjoiMjEyMTI5NTQwOjIxMjEyOTU0MCIsImlzcyI6IlNGOjEwNDkiLCJleHAiOjE3NTUzMDg4Nzh9.pjsljrCxAOQesq2DWTDwRfcUCif10s5pm-3mvb5FVm5_ehdknmxr-IeeL3XnNxbCEXXO9_YskjOjhYlWnvtHUA"
 cnx = st.connection("snowflake", token=mytoken)
 session = cnx.session()
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON')
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'), col('SEARCH_ON'))
 pd_df = my_dataframe.to_pandas()
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
